@@ -8,3 +8,4 @@ abstract class MovieRepository {
   Future<Either<AppError, List<MovieEntity>>> getPlayingNow();
   Future<Either<AppError, List<MovieEntity>>> getComingSoon();
 }
+

@@ -3,22 +3,29 @@ import 'package:movie_app/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
   final int? voteCount;
+  @override
   final int id;
   final String? originalTitle;
+  @override
   final String posterPath;
   final bool? video;
+  @override
   final double voteAverage;
+  @override
   final String? overview;
+  @override
   final String releaseDate;
+  @override
   final String title;
   final bool? adult;
+  @override
   final String backdropPath;
   final String? originalLanguage;
   final List<int>? genreIds;
   final double? popularity;
   final String? mediaType;
 
-  MovieModel(
+  const MovieModel(
       {this.voteCount,
       required this.id,
       this.originalTitle,
@@ -65,22 +72,22 @@ class MovieModel extends MovieEntity {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['vote_count'] = this.voteCount;
-    data['id'] = this.id;
-    data['original_title'] = this.originalTitle;
-    data['poster_path'] = this.posterPath;
-    data['video'] = this.video;
-    data['vote_average'] = this.voteAverage;
-    data['overview'] = this.overview;
-    data['release_date'] = this.releaseDate;
-    data['title'] = this.title;
-    data['adult'] = this.adult;
-    data['backdrop_path'] = this.backdropPath;
-    data['original_language'] = this.originalLanguage;
-    data['genre_ids'] = this.genreIds;
-    data['popularity'] = this.popularity;
-    data['media_type'] = this.mediaType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['vote_count'] = voteCount;
+    data['id'] = id;
+    data['original_title'] = originalTitle;
+    data['poster_path'] = posterPath;
+    data['video'] = video;
+    data['vote_average'] = voteAverage;
+    data['overview'] = overview;
+    data['release_date'] = releaseDate;
+    data['title'] = title;
+    data['adult'] = adult;
+    data['backdrop_path'] = backdropPath;
+    data['original_language'] = originalLanguage;
+    data['genre_ids'] = genreIds;
+    data['popularity'] = popularity;
+    data['media_type'] = mediaType;
     return data;
   }
 }

@@ -24,4 +24,4 @@ class MovieEntity extends Equatable {
 
   @override
   bool? get stringify => true;
-}
+} 

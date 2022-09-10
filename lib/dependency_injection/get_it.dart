@@ -8,19 +8,31 @@ import 'package:movie_app/domain/usecases/get_coming_soon.dart';
 import 'package:movie_app/domain/usecases/get_playing_now.dart';
 import 'package:movie_app/domain/usecases/get_popular.dart';
 import 'package:movie_app/domain/usecases/get_trending.dart';
+import 'package:movie_app/presentation/provider/get_trending_provider.dart';
 
 final getItInstance = GetIt.I;
 
 Future init() async {
-  //all dependencies
+
+  //! provider 
+
+  //get trending provider
+  getItInstance.registerFactory(() => GetTrendingProvider(getItInstance()));
+
+
+  //! core 
   getItInstance.registerLazySingleton<Client>(() => Client());
 
   getItInstance
       .registerLazySingleton<ApiClient>(() => ApiClient(getItInstance()));
+  
 
+  //! feature
+  //remote data source
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(getItInstance()));
-
+   
+  //usecase
   getItInstance
       .registerLazySingleton<GetTrending>(() => GetTrending(getItInstance()));
 
@@ -33,6 +45,8 @@ Future init() async {
   getItInstance.registerLazySingleton<GetPlayingNow>(
       () => GetPlayingNow(getItInstance()));
 
+
+  //repository
   getItInstance.registerLazySingleton<MovieRepository>(
       () => MovieRepositoryImpl(getItInstance()));
 }

@@ -7,7 +7,7 @@ class NavigationListItem extends StatelessWidget {
   final String title;
   final Function onPressed;
 
-  const NavigationListItem({
+   NavigationListItem({
     Key? key,
     required this.title,
     required this.onPressed,

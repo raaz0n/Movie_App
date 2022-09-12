@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/common/constants/languages.dart';
+import 'package:movie_app/common/constants/translation_constants.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
+import 'package:movie_app/presentation/screen/app_localization.dart';
 
 import '../../../common/constants/size_constant.dart';
 import 'navigation_expanded_list_item.dart';
@@ -38,20 +41,25 @@ class NavigationDrawer extends StatelessWidget {
               )),
             ),
             NavigationListItem(
-              title: 'Favorite Movies',
+              title:
+                  "${AppLocalizations.of(context)!.translate(TranslationConstants.favoriteMovies)}",
               onPressed: () {},
             ),
             NavigationExpandedListItem(
-              title: 'Language',
-              children: const ['English', 'Spanish'],
+              title: AppLocalizations.of(context)!.translate(TranslationConstants.language).toString(),
+              children: Languages.languages.map((e) => e.value).toList(),
               onPressed: () {},
             ),
             NavigationListItem(
-              title: 'Feedback',
+              title: AppLocalizations.of(context)!
+                  .translate(TranslationConstants.feedback)
+                  .toString(),
               onPressed: () {},
             ),
             NavigationListItem(
-              title: 'About',
+              title: AppLocalizations.of(context)!
+                  .translate(TranslationConstants.about)
+                  .toString(),
               onPressed: () {},
             ),
           ],

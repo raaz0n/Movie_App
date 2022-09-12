@@ -1,9 +1,11 @@
+import 'package:movie_app/common/constants/translation_constants.dart';
+
 import 'tab.dart';
 
 class MovieTabbedConstants {
   static List<Tab> movieTabs = [
-    Tab(index: 0, title: 'Popular'),
-    Tab(index: 1, title: 'Playing Now'),
-    Tab(index: 2, title: 'Soon'),
+    Tab(index: 0, title: TranslationConstants.popular),
+    Tab(index: 1, title: TranslationConstants.now),
+    Tab(index: 2, title: TranslationConstants.soon),
   ];
 }

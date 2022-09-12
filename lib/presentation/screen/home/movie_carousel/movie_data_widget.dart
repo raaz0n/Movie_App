@@ -9,7 +9,7 @@ class MovieDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MovieBackdropBloc, MovieBackdropState>(
-      builder: ((context, state) {
+      builder: (context, state) {
         if (state is MovieBackdropChanged) {
           return Text(
             state.movies.title,
@@ -20,7 +20,7 @@ class MovieDataWidget extends StatelessWidget {
           );
         }
         return const SizedBox.shrink();
-      }),
+      },
     );
   }
 }

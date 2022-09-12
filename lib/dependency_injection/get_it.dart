@@ -9,6 +9,7 @@ import 'package:movie_app/domain/usecases/get_playing_now.dart';
 import 'package:movie_app/domain/usecases/get_popular.dart';
 import 'package:movie_app/domain/usecases/get_trending.dart';
 import 'package:movie_app/presentation/bloc/movie_backdrop/movie_backdrop_bloc.dart';
+import 'package:movie_app/presentation/bloc/movie_tabbed/movie_tabbed_bloc.dart';
 
 import '../presentation/bloc/movie_carousel/movie_carousel_bloc.dart';
 
@@ -32,6 +33,12 @@ Future init() async {
 
   //movie backdrop
   getItInstance.registerFactory(() => MovieBackdropBloc());
+
+  //movie tabbed
+  getItInstance.registerFactory(() => MovieTabbedBloc(
+      getPopular: getItInstance(),
+      getPlayingNow: getItInstance(),
+      getComingSoon: getItInstance()));
 
   //! core
   getItInstance.registerLazySingleton<Client>(() => Client());

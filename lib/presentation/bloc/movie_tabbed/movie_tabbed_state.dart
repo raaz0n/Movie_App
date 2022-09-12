@@ -18,6 +18,9 @@ class MovieTabChanged extends MovieTabbedState {
 
   const MovieTabChanged({required this.movies, required int currentIndex})
       : super(currentIndex: currentIndex);
+
+  @override
+  List<Object> get props => [currentIndex, movies];
 }
 
 class MovieTabLoadError extends MovieTabbedState {

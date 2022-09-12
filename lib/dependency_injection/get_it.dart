@@ -8,30 +8,42 @@ import 'package:movie_app/domain/usecases/get_coming_soon.dart';
 import 'package:movie_app/domain/usecases/get_playing_now.dart';
 import 'package:movie_app/domain/usecases/get_popular.dart';
 import 'package:movie_app/domain/usecases/get_trending.dart';
-import 'package:movie_app/presentation/provider/get_trending_provider.dart';
+import 'package:movie_app/presentation/bloc/movie_backdrop/movie_backdrop_bloc.dart';
+
+import '../presentation/bloc/movie_carousel/movie_carousel_bloc.dart';
 
 final getItInstance = GetIt.I;
 
 Future init() async {
-
-  //! provider 
+  //! provider
 
   //get trending provider
-  getItInstance.registerFactory(() => GetTrendingProvider(getItInstance()));
+  // getItInstance.registerFactory(() => GetTrendingProvider(getItInstance()));
 
+  //! Bloc
 
-  //! core 
+  //movie carousel
+  getItInstance.registerFactory(
+    () => MovieCarouselBloc(
+      getTrending: getItInstance(),
+      movieBackdropBloc: getItInstance(),
+    ),
+  );
+
+  //movie backdrop
+  getItInstance.registerFactory(() => MovieBackdropBloc());
+
+  //! core
   getItInstance.registerLazySingleton<Client>(() => Client());
 
   getItInstance
       .registerLazySingleton<ApiClient>(() => ApiClient(getItInstance()));
-  
 
   //! feature
   //remote data source
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(getItInstance()));
-   
+
   //usecase
   getItInstance
       .registerLazySingleton<GetTrending>(() => GetTrending(getItInstance()));
@@ -44,7 +56,6 @@ Future init() async {
 
   getItInstance.registerLazySingleton<GetPlayingNow>(
       () => GetPlayingNow(getItInstance()));
-
 
   //repository
   getItInstance.registerLazySingleton<MovieRepository>(

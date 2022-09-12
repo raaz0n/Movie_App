@@ -1,22 +1,24 @@
-import 'package:flutter/cupertino.dart';
-import 'package:movie_app/data/models/movie_model.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
-import 'package:movie_app/domain/entities/no_params.dart';
-import 'package:movie_app/domain/usecases/get_trending.dart';
+// import 'dart:developer';
 
-class GetTrendingProvider extends ChangeNotifier {
-  GetTrending getTrending;
-  GetTrendingProvider(this.getTrending);
+// import 'package:flutter/cupertino.dart';
+// import 'package:movie_app/domain/entities/movie_entity.dart';
+// import 'package:movie_app/domain/entities/no_params.dart';
+// import 'package:movie_app/domain/usecases/get_trending.dart';
 
-  List<MovieEntity> _trendingMovieList = [];
-  List<MovieEntity> get trendingMovieList => _trendingMovieList;
+// class GetTrendingProvider extends ChangeNotifier {
+//   GetTrending getTrending;
+//   GetTrendingProvider(this.getTrending);
 
-  Future<void> GetTrendingData() async {
-    final response = await getTrending.call(NoParams());
+//   List<MovieEntity> _trendingMovieList = [];
+//   List<MovieEntity> get trendingMovieList => _trendingMovieList;
 
-    response.fold((l) => throw Error(), (trendingMovieList) {
-      _trendingMovieList = trendingMovieList;
-      notifyListeners();
-    });
-  }
-}
+//   Future<void> GetTrendingData() async {
+//     final response = await getTrending.call(NoParams());
+
+//     response.fold((l) => throw Error(), (trendingMovieList) {
+//       _trendingMovieList = trendingMovieList;
+//       log(_trendingMovieList.toString());
+//       notifyListeners();
+//     });
+//   }
+// }

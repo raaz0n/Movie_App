@@ -22,7 +22,7 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget> {
 
   @override
   void initState() {
-    movieTabbedBloc.add(MovieTabChangedEvent(currentIndex: currentIndex));
+    movieTabbedBloc.add(const MovieTabChangedEvent(currentIndex: 1));
     super.initState();
   }
 

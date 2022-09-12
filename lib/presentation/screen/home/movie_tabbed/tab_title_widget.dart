@@ -33,14 +33,8 @@ class TabTitleWidget extends StatelessWidget {
         child: Text(
           title,
           style: isSelected
-              ? Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(color: Colors.white)
-              : Theme.of(context)
-                  .textTheme
-                  .subtitle1!
-                  .copyWith(color: Colors.blue),
+              ? const TextStyle(color: AppColor.royalBlue)
+              : const TextStyle(color: Colors.white),
         ),
       ),
     );

@@ -20,7 +20,7 @@ class MovieAppBar extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              log(getProportionateScreenHeight(Sizes.dimen_200).toString());
+              Scaffold.of(context).openDrawer();
             },
             icon: SvgPicture.asset(
               "assets/svgs/menu.svg",

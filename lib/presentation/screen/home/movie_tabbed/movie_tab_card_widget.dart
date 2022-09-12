@@ -1,12 +1,10 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
 import 'package:movie_app/data/core/api_constant.dart';
 
 import '../../../../common/constants/size_constant.dart';
 
-class MovieTabCardWidget extends StatelessWidget {
+class MovieTabCardWidget extends StatefulWidget {
   final int movieId;
   final String title, posterPath;
 
@@ -18,28 +16,35 @@ class MovieTabCardWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<MovieTabCardWidget> createState() => _MovieTabCardWidgetState();
+}
+
+class _MovieTabCardWidgetState extends State<MovieTabCardWidget> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(getProportionateScreenWidth(Sizes.dimen_16)),
+              borderRadius: BorderRadius.circular(
+                  getProportionateScreenWidth(Sizes.dimen_16)),
               child: Image.network(
-                '${ApiConstant.ITEM_LIST}$posterPath',
+                '${ApiConstant.ITEM_LIST}${widget.posterPath}',
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: getProportionateScreenHeight(Sizes.dimen_4)),
+            padding: EdgeInsets.only(
+                top: getProportionateScreenHeight(Sizes.dimen_4)),
             child: Text(
-              title,
+              widget.title,
               maxLines: 1,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText2,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ],

@@ -13,7 +13,24 @@ class ThemeText {
         color: Colors.white,
       );
 
+  // static TextStyle get body =>
+
+  static TextStyle get whiteSubtitle1 => _poppinsTextTheme.subtitle1!.copyWith(
+        fontSize: getProportionateScreenWidth(Sizes.dimen_16),
+        color: Colors.white,
+      );
+
+  static TextStyle get whiteBodyText2 => _poppinsTextTheme.bodyText2!.copyWith(
+        color: Colors.white,
+        fontSize: getProportionateScreenWidth(Sizes.dimen_14),
+        wordSpacing: 0.25,
+        letterSpacing: 0.25,
+        height: 1.5,
+      );
+
   static getTextTheme() => TextTheme(
         headline6: _whiteHeadline6,
+        subtitle1: whiteSubtitle1,
+        bodyText2: whiteBodyText2,
       );
 }

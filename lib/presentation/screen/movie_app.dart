@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
-import 'package:movie_app/presentation/themes/theme_text.dart';
 
 import 'home/home_screen.dart';
 
@@ -23,7 +22,7 @@ class _MovieAppState extends State<MovieApp> {
         primaryColor: AppColor.vulcan,
         scaffoldBackgroundColor: AppColor.vulcan,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: ThemeText.getTextTheme(),
+        // textTheme: ThemeText.getTextTheme(),
         appBarTheme: const AppBarTheme(elevation: 0),
       ),
       home: const HomeScreen(),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:movie_app/domain/entities/movie_entity.dart';
 import 'package:movie_app/presentation/screen/home/movie_carousel/movie_page_view.dart';
 import 'package:movie_app/presentation/widgets/movie_appbar.dart';
+import 'package:movie_app/presentation/widgets/separator.dart';
 
 import 'movie_backdrop_widget.dart';
 import 'movie_data_widget.dart';
@@ -28,8 +29,11 @@ class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
           children: [
             const MovieAppBar(),
             MoviePageView(
-                movies: widget.movies, initialPage: widget.defaultIndex),
+              movies: widget.movies,
+              initialPage: widget.defaultIndex,
+            ),
             const MovieDataWidget(),
+            Separator(),
           ],
         )
       ],

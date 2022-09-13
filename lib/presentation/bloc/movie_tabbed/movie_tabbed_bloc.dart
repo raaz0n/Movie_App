@@ -32,7 +32,7 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
             movieEither = await getPlayingNow(NoParams());
             break;
           case 2:
-            movieEither = await getPopular(NoParams());
+            movieEither = await getComingSoon(NoParams());
             break;
         }
         emit(

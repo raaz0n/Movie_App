@@ -7,7 +7,7 @@ class NavigationListItem extends StatelessWidget {
   final String title;
   final Function onPressed;
 
-   NavigationListItem({
+  const NavigationListItem({
     Key? key,
     required this.title,
     required this.onPressed,
@@ -39,7 +39,7 @@ class NavigationListItem extends StatelessWidget {
 
 class NavigationSubListItem extends StatelessWidget {
   final String title;
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const NavigationSubListItem({
     Key? key,
@@ -50,7 +50,11 @@ class NavigationSubListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onPressed,
+      // onTap: onPressed,
+      onTap: () {
+        onPressed();
+        Navigator.pop(context);
+      },
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [

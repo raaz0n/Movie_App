@@ -5,7 +5,6 @@ class Languages {
   static final languages = [
     LanguageEntity(code: 'en', value: "English"),
     LanguageEntity(code: 'es', value: "Spanish"),
-        // LanguageEntity(code: 'np', value: "नेपाली"),
-
+    LanguageEntity(code: 'ne', value: "नेपाली"),
   ];
 }

@@ -5,7 +5,7 @@ import '../../../common/constants/size_constant.dart';
 
 class NavigationListItem extends StatelessWidget {
   final String title;
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const NavigationListItem({
     Key? key,
@@ -16,7 +16,9 @@ class NavigationListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onPressed,
+      onTap: () {
+        onPressed();
+      },
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [

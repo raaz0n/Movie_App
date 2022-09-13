@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constants/languages.dart';
@@ -7,6 +5,7 @@ import 'package:movie_app/common/constants/translation_constants.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
 import 'package:movie_app/presentation/bloc/language_bloc/language_bloc.dart';
 import 'package:movie_app/presentation/screen/app_localization.dart';
+import 'package:wiredash/wiredash.dart';
 
 import '../../../common/constants/size_constant.dart';
 import 'navigation_expanded_list_item.dart';
@@ -64,7 +63,8 @@ class NavigationDrawer extends StatelessWidget {
                   .translate(TranslationConstants.feedback)
                   .toString(),
               onPressed: () {
-                log("message");
+                Navigator.of(context).pop();
+                Wiredash.of(context).show();
               },
             ),
             NavigationListItem(

@@ -33,14 +33,15 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_localizations:
+    sdk: flutter
   flutter_svg: ^1.1.5
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   http: ^0.13.4
   provider: ^6.0.3
   syncfusion_flutter_gauges: ^20.2.48
-  flutter_localizations:
-    sdk: flutter
+  wiredash: ^1.5.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0

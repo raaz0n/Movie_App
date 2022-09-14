@@ -10,8 +10,10 @@ import 'package:movie_app/domain/usecases/get_popular.dart';
 import 'package:movie_app/domain/usecases/get_trending.dart';
 import 'package:movie_app/presentation/bloc/language_bloc/language_bloc.dart';
 import 'package:movie_app/presentation/bloc/movie_backdrop/movie_backdrop_bloc.dart';
+import 'package:movie_app/presentation/bloc/movie_detail/movie_detail_bloc_bloc.dart';
 import 'package:movie_app/presentation/bloc/movie_tabbed/movie_tabbed_bloc.dart';
 
+import '../domain/usecases/get_movie_details.dart';
 import '../presentation/bloc/movie_carousel/movie_carousel_bloc.dart';
 
 final getItInstance = GetIt.I;
@@ -44,6 +46,13 @@ Future init() async {
   //Language bloc
   getItInstance.registerLazySingleton<LanguageBloc>(() => LanguageBloc());
 
+  // movie detail bloc
+  getItInstance.registerFactory<MovieDetailBlocBloc>(
+    () => MovieDetailBlocBloc(
+      getMovieDetail: getItInstance(),
+    ),
+  );
+
   //! core
   getItInstance.registerLazySingleton<Client>(() => Client());
 
@@ -67,6 +76,11 @@ Future init() async {
 
   getItInstance.registerLazySingleton<GetPlayingNow>(
       () => GetPlayingNow(getItInstance()));
+
+  //movie Detail Usecase
+
+  getItInstance.registerLazySingleton<GetMovieDetail>(
+      () => GetMovieDetail(getItInstance()));
 
   //repository
   getItInstance.registerLazySingleton<MovieRepository>(

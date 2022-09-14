@@ -20,9 +20,10 @@ class WireDashApp extends StatelessWidget {
       projectId: "movie-2o9bdbq",
       secret: "viGT9SdBT3MabGZBC8RPU6fjWu7AWbPN",
       options: WiredashOptionsData(
-          locale: Locale.fromSubtags(
-        languageCode: languageCode,
-      )),
+          // locale: Locale.fromSubtags(
+          //   languageCode: languageCode,
+          // ),
+          locale: Locale(languageCode)),
       theme: WiredashThemeData(
         brightness: Brightness.dark,
         primaryColor: AppColor.royalBlue,

@@ -3,6 +3,8 @@ import 'package:movie_app/common/screenUtils/size_config.dart';
 import 'package:movie_app/data/core/api_constant.dart';
 
 import '../../../../common/constants/size_constant.dart';
+import '../../movie_detail/movie_detail_argument.dart';
+import '../../movie_detail/movie_detail_screen.dart';
 
 class MovieTabCardWidget extends StatefulWidget {
   final int movieId;
@@ -23,7 +25,16 @@ class _MovieTabCardWidgetState extends State<MovieTabCardWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetailScreen(
+              movieDetailArguments: MovieDetailArguments(widget.movieId),
+            ),
+          ),
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

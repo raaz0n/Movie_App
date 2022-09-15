@@ -4,6 +4,7 @@ import 'package:movie_app/data/core/api_client.dart';
 import 'package:movie_app/data/data_sources/movie_remote_data_source.dart';
 import 'package:movie_app/data/repositories/moive_repositories_impl.dart';
 import 'package:movie_app/domain/repositories/movie_repositories.dart';
+import 'package:movie_app/domain/usecases/get_cast.dart';
 import 'package:movie_app/domain/usecases/get_coming_soon.dart';
 import 'package:movie_app/domain/usecases/get_playing_now.dart';
 import 'package:movie_app/domain/usecases/get_popular.dart';
@@ -81,6 +82,11 @@ Future init() async {
 
   getItInstance.registerLazySingleton<GetMovieDetail>(
       () => GetMovieDetail(getItInstance()));
+
+      // cast usecase
+      
+  getItInstance.registerLazySingleton<GetCast>(
+      () => GetCast(getItInstance()));
 
   //repository
   getItInstance.registerLazySingleton<MovieRepository>(

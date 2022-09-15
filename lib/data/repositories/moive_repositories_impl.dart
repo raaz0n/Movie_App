@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movie_app/data/data_sources/movie_remote_data_source.dart';
+import 'package:movie_app/data/models/movie_cast_model.dart';
 import 'package:movie_app/data/models/movie_detail_model.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 import 'package:movie_app/domain/entities/app_error.dart';
@@ -53,6 +54,16 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movie = await remoteDataSource.getMovieDetails(id);
       return Right(movie!);
+    } on Exception {
+      return Left(AppError("something Want Wroung"));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<CastModel>>> getCast(int id) async {
+    try {
+      final castCrew = await remoteDataSource.getCast(id);
+      return Right(castCrew!);
     } on Exception {
       return Left(AppError("something Want Wroung"));
     }

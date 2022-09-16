@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movie_app/domain/entities/movie_params.dart';
@@ -7,6 +5,7 @@ import 'package:movie_app/domain/usecases/get_movie_details.dart';
 import 'package:movie_app/presentation/bloc/cast_bloc/cast_bloc.dart';
 
 import '../../../domain/entities/movie_details_entity.dart';
+import '../video_bloc/videos_bloc.dart';
 
 part 'movie_detail_bloc_event.dart';
 part 'movie_detail_bloc_state.dart';
@@ -15,7 +14,11 @@ class MovieDetailBlocBloc
     extends Bloc<MovieDetailBlocEvent, MovieDetailBlocState> {
   final GetMovieDetail getMovieDetail;
   final CastBloc castBloc;
-  MovieDetailBlocBloc({required this.getMovieDetail, required this.castBloc})
+  final VideosBloc videosBloc;
+  MovieDetailBlocBloc(
+      {required this.getMovieDetail,
+      required this.castBloc,
+      required this.videosBloc})
       : super(MovieDetailBlocInitial()) {
     on<MovieDetailBlocEvent>((event, emit) async {
       if (event is MovieDetailLoadEvent) {
@@ -28,6 +31,7 @@ class MovieDetailBlocBloc
         );
 
         castBloc.add(CastLoadEvent(event.movieId));
+        videosBloc.add(VideoLoadEvent(movieId: event.movieId));
       }
     });
   }

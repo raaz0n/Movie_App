@@ -3,6 +3,7 @@ import 'package:movie_app/domain/entities/app_error.dart';
 import 'package:movie_app/domain/entities/cast_entity.dart';
 import 'package:movie_app/domain/entities/movie_details_entity.dart';
 import 'package:movie_app/domain/entities/movie_entity.dart';
+import 'package:movie_app/domain/entities/watch_video_Entity.dart';
 
 abstract class MovieRepository {
   Future<Either<AppError, List<MovieEntity>>> getTrending();
@@ -13,6 +14,10 @@ abstract class MovieRepository {
   Future<Either<AppError,MovieDetailsEntity>> getMovieDetails(int id);
   //cast
     Future<Either<AppError, List<CastEntity>>> getCast(int id);
+
+    //watch video
+  Future<Either<AppError, List<WatchVideoEntity>>> getVideo(int id);
+
 
 }
 

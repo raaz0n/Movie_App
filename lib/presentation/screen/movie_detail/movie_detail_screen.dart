@@ -6,11 +6,13 @@ import 'package:movie_app/presentation/bloc/movie_detail/movie_detail_bloc_bloc.
 import 'package:movie_app/presentation/screen/app_localization.dart';
 import 'package:movie_app/presentation/screen/movie_detail/cast_list_widget.dart';
 import 'package:movie_app/presentation/screen/movie_detail/movie_detail_argument.dart';
+import 'package:movie_app/presentation/screen/movie_detail/video_widget.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
 
 import '../../../common/constants/size_constant.dart';
 import '../../../common/screenUtils/size_config.dart';
 import '../../bloc/cast_bloc/cast_bloc.dart';
+import '../../bloc/video_bloc/videos_bloc.dart';
 import '../../widgets/big_poster.dart';
 
 class MovieDetailScreen extends StatefulWidget {
@@ -25,11 +27,14 @@ class MovieDetailScreen extends StatefulWidget {
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBlocBloc movieDetailBlocBloc;
   late CastBloc _castBloc;
+  late VideosBloc _videosBloc;
   @override
   void initState() {
     movieDetailBlocBloc = getItInstance<MovieDetailBlocBloc>();
     _castBloc = getItInstance<CastBloc>();
     _castBloc = movieDetailBlocBloc.castBloc;
+    _videosBloc = movieDetailBlocBloc.videosBloc;
+
     movieDetailBlocBloc
         .add(MovieDetailLoadEvent(widget.movieDetailArguments.movieId));
     // _castBloc.add(CastLoadEvent(movieId: widget.movieDetailArguments.movieId));
@@ -40,6 +45,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   void dispose() {
     movieDetailBlocBloc.close();
     _castBloc.close();
+    _videosBloc.close();
     super.dispose();
   }
 
@@ -53,6 +59,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
           BlocProvider.value(
             value: _castBloc,
+          ),
+          BlocProvider.value(
+            value: _videosBloc,
           )
         ],
         child: BlocBuilder<MovieDetailBlocBloc, MovieDetailBlocState>(
@@ -92,7 +101,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                             .copyWith(color: AppColor.royalBlue),
                       ),
                     ),
-                    const CastListWidget()
+                    const CastListWidget(),
+                    VideoWidget(videosBloc: _videosBloc)
                   ],
                 ),
               );

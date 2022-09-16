@@ -15,7 +15,7 @@ class CastListWidget extends StatelessWidget {
       builder: (context, state) {
         if (state is CastLoaded) {
           return SizedBox(
-            height: getProportionateScreenHeight(Sizes.dimen_100),
+            height: getProportionateScreenHeight(Sizes.dimen_230),
             child: ListView.builder(
                 physics: const ScrollPhysics(),
                 shrinkWrap: true,
@@ -24,7 +24,7 @@ class CastListWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final castEntity = state.casts[index];
                   return SizedBox(
-                    height: getProportionateScreenHeight(Sizes.dimen_80),
+                    height: getProportionateScreenHeight(Sizes.dimen_150),
                     width: getProportionateScreenWidth(Sizes.dimen_160),
                     child: Card(
                       elevation: 1,
@@ -47,9 +47,10 @@ class CastListWidget extends StatelessWidget {
                                   top: Radius.circular(Sizes.dimen_10)),
                               child: Image.network(
                                 '${ApiConstant.ITEM_LIST}${castEntity.profilePath ?? "/rZHqKjXYPFndiri2rVTzHfYSVBc.jpg"}',
-                                fit: BoxFit.fitHeight,
+                                // fit: BoxFit.fitHeight,
+                                fit: BoxFit.cover,
                                 height: getProportionateScreenHeight(
-                                    Sizes.dimen_80),
+                                    Sizes.dimen_100),
                                 width: getProportionateScreenWidth(
                                     Sizes.dimen_160),
                               ),

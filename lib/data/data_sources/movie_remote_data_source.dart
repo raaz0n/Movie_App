@@ -1,13 +1,10 @@
-import 'dart:convert';
+import 'dart:developer';
 
-import 'package:http/http.dart';
 import 'package:movie_app/data/core/api_client.dart';
-import 'package:movie_app/data/core/api_constant.dart';
 import 'package:movie_app/data/models/movie_cast_model.dart';
 import 'package:movie_app/data/models/movie_detail_model.dart';
 import 'package:movie_app/data/models/movies_result_model.dart';
 import 'package:movie_app/data/models/movie_model.dart';
-import 'package:movie_app/domain/usecases/get_cast.dart';
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>?> getTrending();
@@ -16,7 +13,6 @@ abstract class MovieRemoteDataSource {
   Future<List<MovieModel>?> getPlayingNow();
   Future<MovieDetailModel?> getMovieDetails(int id);
   Future<List<CastModel>?> getCast(int id);
-
 }
 
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
@@ -56,19 +52,18 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
     // print("movies: $movies");
     return movies;
   }
-  
+
   @override
-  Future<MovieDetailModel?> getMovieDetails(int id)async {
+  Future<MovieDetailModel?> getMovieDetails(int id) async {
     final response = await _client.get("movie/$id");
     final movie = MovieDetailModel.fromJson(response);
     return movie;
-   
   }
-  
+
   @override
-  Future<List<CastModel>?> getCast(int id) async{
-     final response = await _client.get("path");
-     final cast = CastResultModel.fromJson(response).cast;
-     return cast;
+  Future<List<CastModel>?> getCast(int id) async {
+    final response = await _client.get("movie/$id/credits");
+    final cast = CastResultModel.fromJson(response).cast;
+    return cast;
   }
 }

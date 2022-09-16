@@ -44,9 +44,9 @@ class CastModel extends CastEntity {
   @override
   String name;
   String? originalName;
-  double? popularity;
+  String? popularity;
   @override
-  String profilePath;
+  String? profilePath;
   int? castId;
   @override
   String character;
@@ -62,16 +62,17 @@ class CastModel extends CastEntity {
       required this.name,
       this.originalName,
       this.popularity,
-      required this.profilePath,
+       this.profilePath,
       this.castId,
       required this.character,
       required this.creditId,
       this.order})
       : super(
-            creditId: creditId,
-            name: name,
-            posterPath: profilePath,
-            character: character);
+          creditId: creditId,
+          name: name,
+          profilePath: profilePath,
+          character: character,
+        );
 
   factory CastModel.fromJson(Map<String, dynamic> json) => CastModel(
         adult: json["adult"],
@@ -80,8 +81,8 @@ class CastModel extends CastEntity {
         knownForDepartment: json['known_for_department'],
         name: json['name'],
         originalName: json['original_name'],
-        popularity: json['popularity'],
-        profilePath: json['profile_path'],
+        popularity: json['popularity'].toString(),
+        profilePath: json["profile_path"],
         castId: json['cast_id'],
         character: json['character'],
         creditId: json['credit_id'],

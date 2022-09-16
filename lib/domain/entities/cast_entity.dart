@@ -3,17 +3,16 @@ import 'package:equatable/equatable.dart';
 class CastEntity extends Equatable {
   final String creditId;
   final String name;
-  final String posterPath;
+  final String? profilePath;
   final String character;
 
   const CastEntity({
     required this.creditId,
     required this.name,
-    required this.posterPath,
+    this.profilePath,
     required this.character,
   });
 
   @override
-  // TODO: implement props
-  List<Object?> get props => [creditId];
+  List<Object?> get props => [];
 }

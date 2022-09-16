@@ -9,6 +9,7 @@ import 'package:movie_app/domain/usecases/get_coming_soon.dart';
 import 'package:movie_app/domain/usecases/get_playing_now.dart';
 import 'package:movie_app/domain/usecases/get_popular.dart';
 import 'package:movie_app/domain/usecases/get_trending.dart';
+import 'package:movie_app/presentation/bloc/cast_bloc/cast_bloc.dart';
 import 'package:movie_app/presentation/bloc/language_bloc/language_bloc.dart';
 import 'package:movie_app/presentation/bloc/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movie_app/presentation/bloc/movie_detail/movie_detail_bloc_bloc.dart';
@@ -51,8 +52,13 @@ Future init() async {
   getItInstance.registerFactory<MovieDetailBlocBloc>(
     () => MovieDetailBlocBloc(
       getMovieDetail: getItInstance(),
+      castBloc: getItInstance(),
     ),
   );
+
+  //cast bloc
+  getItInstance
+      .registerFactory<CastBloc>(() => CastBloc(getCast: getItInstance()));
 
   //! core
   getItInstance.registerLazySingleton<Client>(() => Client());
@@ -83,10 +89,9 @@ Future init() async {
   getItInstance.registerLazySingleton<GetMovieDetail>(
       () => GetMovieDetail(getItInstance()));
 
-      // cast usecase
-      
-  getItInstance.registerLazySingleton<GetCast>(
-      () => GetCast(getItInstance()));
+  // cast usecase
+
+  getItInstance.registerLazySingleton<GetCast>(() => GetCast(getItInstance()));
 
   //repository
   getItInstance.registerLazySingleton<MovieRepository>(

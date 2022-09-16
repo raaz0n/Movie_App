@@ -13,6 +13,7 @@ class CastBloc extends Bloc<CastEvent, CastState> {
     on<CastEvent>((event, emit) async {
       if (event is CastLoadEvent) {
         final castData = await getCast(MovieParams(event.movieId));
+
         emit(
           castData.fold(
             (l) => CastError(),

@@ -7,7 +7,9 @@
     "now": "À présent",
     "soon": "Bientôt",
     "cast":"moulage",
-        "watchTrailers": "Regarder les bandes-annonces"
+    "watchTrailers": "Regarder les bandes-annonces",
+    "noFavoriteMovie": "Aucun film préféré"
+
 
 
 }

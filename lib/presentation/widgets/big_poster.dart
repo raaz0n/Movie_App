@@ -53,7 +53,7 @@ class BigPoster extends StatelessWidget {
         Positioned(
             left: getProportionateScreenWidth(Sizes.dimen_16),
             right: getProportionateScreenWidth(Sizes.dimen_16),
-            child: const MovieDetailAppBar())
+            child:  MovieDetailAppBar(movieDetailsEntity: movie,))
       ],
     );
   }

@@ -64,10 +64,16 @@ class _WatchVideoScreenState extends State<WatchVideoScreen> {
                         height: getProportionateScreenHeight(60),
                         child: Row(
                           children: [
-                            Image.asset(
-                              YoutubePlayer.getThumbnail(
-                                videoId: _videos[i].key,
-                                quality: ThumbnailQuality.high,
+                            GestureDetector(
+                              onTap: () {
+                                _controller.load(_videos[i].key);
+                                _controller.play();
+                              },
+                              child: Image.asset(
+                                YoutubePlayer.getThumbnail(
+                                  videoId: _videos[i].key,
+                                  quality: ThumbnailQuality.high,
+                                ),
                               ),
                             ),
                             Expanded(

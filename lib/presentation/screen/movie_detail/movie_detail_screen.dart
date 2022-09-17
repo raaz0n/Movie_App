@@ -12,6 +12,7 @@ import 'package:movie_app/presentation/themes/theme_color.dart';
 import '../../../common/constants/size_constant.dart';
 import '../../../common/screenUtils/size_config.dart';
 import '../../bloc/cast_bloc/cast_bloc.dart';
+import '../../bloc/favorite_bloc/favorite_bloc.dart';
 import '../../bloc/video_bloc/videos_bloc.dart';
 import '../../widgets/big_poster.dart';
 
@@ -28,12 +29,14 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBlocBloc movieDetailBlocBloc;
   late CastBloc _castBloc;
   late VideosBloc _videosBloc;
+  late FavoriteBloc _favoriteBloc;
   @override
   void initState() {
     movieDetailBlocBloc = getItInstance<MovieDetailBlocBloc>();
     _castBloc = getItInstance<CastBloc>();
     _castBloc = movieDetailBlocBloc.castBloc;
     _videosBloc = movieDetailBlocBloc.videosBloc;
+    _favoriteBloc = movieDetailBlocBloc.favoriteBloc;
 
     movieDetailBlocBloc
         .add(MovieDetailLoadEvent(widget.movieDetailArguments.movieId));
@@ -46,6 +49,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     movieDetailBlocBloc.close();
     _castBloc.close();
     _videosBloc.close();
+    _favoriteBloc.close();
     super.dispose();
   }
 
@@ -62,6 +66,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
           BlocProvider.value(
             value: _videosBloc,
+          ),
+          BlocProvider.value(
+            value: _favoriteBloc,
           )
         ],
         child: BlocBuilder<MovieDetailBlocBloc, MovieDetailBlocState>(

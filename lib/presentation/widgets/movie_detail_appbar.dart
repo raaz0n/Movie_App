@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constants/size_constant.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
+import 'package:movie_app/domain/entities/movie_details_entity.dart';
+import 'package:movie_app/domain/entities/movie_entity.dart';
+
+import '../bloc/favorite_bloc/favorite_bloc.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
-  const MovieDetailAppBar({Key? key}) : super(key: key);
+  MovieDetailsEntity movieDetailsEntity;
+   MovieDetailAppBar({Key? key,required this.movieDetailsEntity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +29,29 @@ class MovieDetailAppBar extends StatelessWidget {
                 size: getProportionateScreenWidth(Sizes.dimen_20),
               ),
             ),
-            Icon(
-              Icons.favorite_border,
-              color: Colors.white,
-              size: getProportionateScreenWidth(Sizes.dimen_20),
+            BlocBuilder<FavoriteBloc, FavoriteState>(
+              builder: (context, state) {
+                if (state is IsFavoriteMovie) {
+                  return GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<FavoriteBloc>(context).add(ToggleFavoriteMovieEvent(MovieEntity.fromMovieDetailEntity(movieDetailsEntity), state.isMovieFavorite));
+                    },
+                    child: Icon(
+                      state.isMovieFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: Colors.white,
+                      size: getProportionateScreenWidth(Sizes.dimen_20),
+                    ),
+                  );
+                } else {
+                  return Icon(
+                    Icons.favorite_border,
+                    color: Colors.white,
+                    size: getProportionateScreenWidth(Sizes.dimen_20),
+                  );
+                }
+              },
             )
           ],
         ),

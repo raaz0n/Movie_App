@@ -8,6 +8,7 @@ import 'package:movie_app/presentation/screen/app_localization.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../../common/constants/size_constant.dart';
+import '../favorite/favorite_screen.dart';
 import 'navigation_expanded_list_item.dart';
 import 'navigation_list_item.dart';
 
@@ -44,9 +45,16 @@ class NavigationDrawer extends StatelessWidget {
               )),
             ),
             NavigationListItem(
-              title:
-                  "${AppLocalizations.of(context)!.translate(TranslationConstants.favoriteMovies)}",
-              onPressed: () {},
+              title: AppLocalizations.of(context)!
+                  .translate(TranslationConstants.favoriteMovies)
+                  .toString(),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => FavoriteScreen(),
+                  ),
+                );
+              },
             ),
             NavigationExpandedListItem(
               title: AppLocalizations.of(context)!

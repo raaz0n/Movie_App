@@ -11,13 +11,16 @@ abstract class MovieRepository {
   Future<Either<AppError, List<MovieEntity>>> getPlayingNow();
   Future<Either<AppError, List<MovieEntity>>> getComingSoon();
   //movie detail
-  Future<Either<AppError,MovieDetailsEntity>> getMovieDetails(int id);
+  Future<Either<AppError, MovieDetailsEntity>> getMovieDetails(int id);
   //cast
-    Future<Either<AppError, List<CastEntity>>> getCast(int id);
+  Future<Either<AppError, List<CastEntity>>> getCast(int id);
 
-    //watch video
+  //watch video
   Future<Either<AppError, List<WatchVideoEntity>>> getVideo(int id);
 
-
+  //hive database
+  Future<Either<AppError, void>> saveMovie(MovieEntity movieEntity);
+  Future<Either<AppError, List<MovieEntity>>> getFaviteMovies();
+  Future<Either<AppError, void>> deleteFaviteMovies(int movieId);
+  Future<Either<AppError, bool>> checkIfFaviteMovies(int movieId);
 }
-

@@ -16,7 +16,7 @@ class MovieDetailModel extends MovieDetailsEntity {
   const MovieDetailModel({
     this.adult,
     required this.backdropPath,
-    this.belongsToCollection,
+    // this.belongsToCollection,
     this.budget,
     this.genres,
     this.homepage,
@@ -52,7 +52,7 @@ class MovieDetailModel extends MovieDetailsEntity {
   final bool? adult;
   @override
   final String backdropPath;
-  final BelongsToCollection? belongsToCollection;
+  // final BelongsToCollection? belongsToCollection;
   final int? budget;
   final List<Genre>? genres;
   final String? homepage;
@@ -86,8 +86,8 @@ class MovieDetailModel extends MovieDetailsEntity {
       MovieDetailModel(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
-        belongsToCollection:
-            BelongsToCollection.fromJson(json["belongs_to_collection"]),
+        // belongsToCollection:
+        //     BelongsToCollection.fromJson(json["belongs_to_collection"]),
         budget: json["budget"],
         genres: List<Genre>.from(json["genres"].map((x) => Genre.fromJson(x))),
         homepage: json["homepage"],
@@ -120,7 +120,7 @@ class MovieDetailModel extends MovieDetailsEntity {
   Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath,
-        "belongs_to_collection": belongsToCollection!.toJson(),
+        // "belongs_to_collection": belongsToCollection!.toJson(),
         "budget": budget,
         "genres": List<dynamic>.from(genres!.map((x) => x.toJson())),
         "homepage": homepage,
@@ -272,5 +272,3 @@ class SpokenLanguage {
         "name": name,
       };
 }
-
-

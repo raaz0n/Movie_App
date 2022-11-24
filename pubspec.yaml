@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_inappwebview: ^5.7.2
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^1.1.5

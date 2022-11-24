@@ -38,11 +38,10 @@ class NavigationDrawer extends StatelessWidget {
                 left: getProportionateScreenWidth(Sizes.dimen_8),
                 right: getProportionateScreenWidth(Sizes.dimen_8),
               ),
-              child: Expanded(
-                  child: Image.asset(
+              child: Image.asset(
                 "assets/pngs/logo.png",
                 height: getProportionateScreenWidth(Sizes.dimen_200),
-              )),
+              ),
             ),
             NavigationListItem(
               title: AppLocalizations.of(context)!

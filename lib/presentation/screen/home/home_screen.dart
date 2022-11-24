@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/dependency_injection/get_it.dart';
 
 import '../../../common/screenUtils/size_config.dart';
-import '../../bloc/language_bloc/language_bloc.dart';
 import '../../bloc/movie_backdrop/movie_backdrop_bloc.dart';
 import '../../bloc/movie_carousel/movie_carousel_bloc.dart';
 import '../../bloc/movie_tabbed/movie_tabbed_bloc.dart';

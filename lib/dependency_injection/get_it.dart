@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
+import 'package:movie_app/domain/usecases/get_top_rated.dart';
 
 import '../data/core/api_client.dart';
 import '../data/data_sources/movie_local_data_source.dart';
@@ -50,10 +51,13 @@ Future init() async {
   );
 
   //movie tabbed bloc
-  getItInstance.registerFactory(() => MovieTabbedBloc(
-      getPopular: getItInstance(),
-      getPlayingNow: getItInstance(),
-      getComingSoon: getItInstance()));
+  getItInstance.registerFactory(
+    () => MovieTabbedBloc(
+        getPopular: getItInstance(),
+        getPlayingNow: getItInstance(),
+        getComingSoon: getItInstance(),
+        getTopRated: getItInstance()),
+  );
 
   //Language bloc
   getItInstance.registerLazySingleton<LanguageBloc>(
@@ -140,6 +144,12 @@ Future init() async {
 
   getItInstance.registerLazySingleton<GetPlayingNow>(
     () => GetPlayingNow(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<GetTopRated>(
+    () => GetTopRated(
       getItInstance(),
     ),
   );

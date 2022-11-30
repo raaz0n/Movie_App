@@ -65,10 +65,10 @@ class _WatchVideoScreenState extends State<WatchVideoScreen> {
                   child: Column(
                     children: [
                       for (int i = 0; i < _videos.length; i++)
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: Sizes.dimen_10,
-                          ),
+                        SizedBox(
+                          // padding: const EdgeInsets.symmetric(
+                          //   vertical: Sizes.dimen_10,
+                          // ),
                           height: getProportionateScreenHeight(60),
                           child: Row(
                             children: [

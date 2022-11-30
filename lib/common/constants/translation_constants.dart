@@ -13,6 +13,7 @@ class TranslationConstants {
   static const String popular = 'popular';
   static const String now = 'now';
   static const String soon = 'soon';
+  static const String top = 'top';
   static const String noMovies = 'noMovies';
   static const String cast = 'cast';
   static const String watchTrailers = 'watchTrailers';
@@ -29,5 +30,4 @@ class TranslationConstants {
   static const String enterTMDbUsername = 'enterTMDbUsername';
   static const String enterPassword = 'enterPassword';
   static const String guestSignIn = 'guestSignIn';
-
 }

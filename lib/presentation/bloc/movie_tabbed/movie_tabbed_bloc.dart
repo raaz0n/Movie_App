@@ -7,6 +7,7 @@ import 'package:movie_app/domain/entities/no_params.dart';
 import 'package:movie_app/domain/usecases/get_coming_soon.dart';
 import 'package:movie_app/domain/usecases/get_playing_now.dart';
 import 'package:movie_app/domain/usecases/get_popular.dart';
+import 'package:movie_app/domain/usecases/get_top_rated.dart';
 
 part 'movie_tabbed_event.dart';
 part 'movie_tabbed_state.dart';
@@ -15,12 +16,14 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
   final GetPopular getPopular;
   final GetPlayingNow getPlayingNow;
   final GetComingSoon getComingSoon;
+  final GetTopRated getTopRated;
 
-  MovieTabbedBloc(
-      {required this.getPopular,
-      required this.getPlayingNow,
-      required this.getComingSoon})
-      : super(const MovieTabbedInitial(currentIndex: 1)) {
+  MovieTabbedBloc({
+    required this.getPopular,
+    required this.getPlayingNow,
+    required this.getComingSoon,
+    required this.getTopRated,
+  }) : super(const MovieTabbedInitial(currentIndex: 1)) {
     on<MovieTabbedEvent>((event, emit) async {
       if (event is MovieTabChangedEvent) {
         Either<AppError, List<MovieEntity>>? movieEither;
@@ -33,6 +36,9 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
             break;
           case 2:
             movieEither = await getComingSoon(NoParams());
+            break;
+          case 3:
+            movieEither = await getTopRated(NoParams());
             break;
         }
         emit(

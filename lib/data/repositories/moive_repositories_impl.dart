@@ -56,6 +56,16 @@ class MovieRepositoryImpl extends MovieRepository {
   }
 
   @override
+  Future<Either<AppError, List<MovieEntity>>> getTopRated() async {
+    try {
+      final movies = await remoteDataSource.getTopRated();
+      return Right(movies!);
+    } on Exception {
+      return Left(AppError("something Want Wroung"));
+    }
+  }
+
+  @override
   Future<Either<AppError, MovieDetailModel>> getMovieDetails(int id) async {
     try {
       final movie = await remoteDataSource.getMovieDetails(id);

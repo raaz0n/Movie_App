@@ -135,4 +135,14 @@ class MovieRepositoryImpl extends MovieRepository {
       return Left(AppError("something Want Wroung"));
     }
   }
+
+  @override
+  Future<Either<AppError, List<MovieEntity>>> getSimilarMovies(int id) async {
+    try {
+      final similarMovies = await remoteDataSource.getSimilarMovies(id);
+      return Right(similarMovies!);
+    } on Exception {
+      return Left(AppError("something Want Wroung"));
+    }
+  }
 }

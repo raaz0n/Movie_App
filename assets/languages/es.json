@@ -9,6 +9,7 @@
     "top":"MEJOR CALIFICADA",
     "okay": "Bueno",
     "retry": "Rever",
+    "similarMovie":"Películas similares",
     "somethingWentWrong": "Algo salió mal...",
     "checkNetwork": "Verifique su conexión de red y presione el botón Reintentar o colóquelo como error presionando el botón Comentarios.",
     "aboutDescription": "Este producto utiliza la API de TMDb pero no está respaldado ni certificado por TMDb. Esta aplicación está desarrollada con fines educativos.",

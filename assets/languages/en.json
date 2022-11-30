@@ -9,6 +9,7 @@
     "top":"TOP",
     "okay": "Okay",
     "retry": "Retry",
+    "similarMovie":"Similar Movies",
     "somethingWentWrong": "Something went wrong...",
     "checkNetwork": "Please check your network connection and press Retry button or put in as a bug by pressing Feedback button.",
     "noMovies": "Sorry, no movies under this section",

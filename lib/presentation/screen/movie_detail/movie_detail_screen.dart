@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constants/translation_constants.dart';
 import 'package:movie_app/dependency_injection/get_it.dart';
 import 'package:movie_app/presentation/bloc/movie_detail/movie_detail_bloc_bloc.dart';
+import 'package:movie_app/presentation/bloc/similar_movies/similar_movies_bloc.dart';
 import 'package:movie_app/presentation/screen/app_localization.dart';
-import 'package:movie_app/presentation/screen/movie_detail/cast_list_widget.dart';
 import 'package:movie_app/presentation/screen/movie_detail/movie_detail_argument.dart';
 import 'package:movie_app/presentation/screen/movie_detail/video_widget.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
@@ -15,6 +15,8 @@ import '../../bloc/cast_bloc/cast_bloc.dart';
 import '../../bloc/favorite_bloc/favorite_bloc.dart';
 import '../../bloc/video_bloc/videos_bloc.dart';
 import '../../widgets/big_poster.dart';
+import 'cast_list_widget.dart';
+import 'similar_movie_list_widget.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   MovieDetailArguments movieDetailArguments;
@@ -27,12 +29,14 @@ class MovieDetailScreen extends StatefulWidget {
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBlocBloc movieDetailBlocBloc;
+  late SimilarMoviesBloc similarMoviesBloc;
   late CastBloc _castBloc;
   late VideosBloc _videosBloc;
   late FavoriteBloc _favoriteBloc;
   @override
   void initState() {
     movieDetailBlocBloc = getItInstance<MovieDetailBlocBloc>();
+    similarMoviesBloc = getItInstance<SimilarMoviesBloc>();
     _castBloc = getItInstance<CastBloc>();
     _castBloc = movieDetailBlocBloc.castBloc;
     _videosBloc = movieDetailBlocBloc.videosBloc;
@@ -40,6 +44,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
     movieDetailBlocBloc
         .add(MovieDetailLoadEvent(widget.movieDetailArguments.movieId));
+    similarMoviesBloc
+        .add(SimilarMovieLoadEvent(widget.movieDetailArguments.movieId));
     // _castBloc.add(CastLoadEvent(movieId: widget.movieDetailArguments.movieId));
     super.initState();
   }
@@ -47,6 +53,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   @override
   void dispose() {
     movieDetailBlocBloc.close();
+    similarMoviesBloc.close();
     _castBloc.close();
     _videosBloc.close();
     _favoriteBloc.close();
@@ -69,6 +76,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
           BlocProvider.value(
             value: _favoriteBloc,
+          ),
+          BlocProvider.value(
+            value: similarMoviesBloc,
           )
         ],
         child: BlocBuilder<MovieDetailBlocBloc, MovieDetailBlocState>(
@@ -109,6 +119,20 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       ),
                     ),
                     const CastListWidget(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: Sizes.dimen_10, horizontal: Sizes.dimen_16),
+                      child: Text(
+                        AppLocalizations.of(context)!
+                            .translate(TranslationConstants.similarMovie)
+                            .toString(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(color: AppColor.royalBlue),
+                      ),
+                    ),
+                    const SimilarMovieListViewBuilder(),
                     VideoWidget(videosBloc: _videosBloc)
                   ],
                 ),

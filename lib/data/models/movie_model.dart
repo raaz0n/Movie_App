@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:movie_app/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
@@ -19,13 +18,13 @@ class MovieModel extends MovieEntity {
   final String title;
   final bool? adult;
   @override
-  final String backdropPath;
+  String backdropPath;
   final String? originalLanguage;
   final List<int>? genreIds;
   final double? popularity;
   final String? mediaType;
 
-  const MovieModel(
+  MovieModel(
       {this.voteCount,
       required this.id,
       this.originalTitle,
@@ -56,15 +55,15 @@ class MovieModel extends MovieEntity {
       voteCount: json['vote_count'],
       id: json['id'],
       originalTitle: json['original_title'],
-      posterPath: json['poster_path'],
+      posterPath: json['poster_path'] ?? "/xUWf5xX0AnZgAnYXAMk03zTbsef.jpg",
       video: json['video'],
       voteAverage: json['vote_average']?.toDouble() ?? 0.0,
       overview: json['overview'],
       releaseDate: json['release_date'],
       title: json['title'],
       adult: json['adult'],
-      backdropPath: json['backdrop_path'],
-      originalLanguage: json['original_language'],
+      backdropPath: json['backdrop_path'] ?? "/xUWf5xX0AnZgAnYXAMk03zTbsef.jpg",
+      originalLanguage: json['original_language'] ?? "",
       genreIds: json['genre_ids'].cast<int>(),
       popularity: json['popularity']?.toDouble() ?? 0.0,
       mediaType: json['media_type'],

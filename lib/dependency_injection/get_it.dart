@@ -1,6 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
+import 'package:movie_app/domain/usecases/get_similar_movies.dart';
 import 'package:movie_app/domain/usecases/get_top_rated.dart';
+import 'package:movie_app/presentation/bloc/similar_movies/similar_movies_bloc.dart';
 
 import '../data/core/api_client.dart';
 import '../data/data_sources/movie_local_data_source.dart';
@@ -81,6 +83,13 @@ Future init() async {
     ),
   );
 
+  //similar movie bloc
+  getItInstance.registerFactory<SimilarMoviesBloc>(
+    () => SimilarMoviesBloc(
+      getSimilarMovies: getItInstance(),
+    ),
+  );
+
   //video bloc
   getItInstance.registerFactory<VideosBloc>(
     () => VideosBloc(
@@ -89,7 +98,6 @@ Future init() async {
   );
 
   //favorite bloc
-
   getItInstance.registerFactory<FavoriteBloc>(
     () => FavoriteBloc(
       getItInstance(),
@@ -173,6 +181,13 @@ Future init() async {
   //video usecase
   getItInstance.registerLazySingleton<GetVideo>(
     () => GetVideo(
+      getItInstance(),
+    ),
+  );
+
+  //similar movies use case
+  getItInstance.registerLazySingleton<GetSimilarMovies>(
+    () => GetSimilarMovies(
       getItInstance(),
     ),
   );

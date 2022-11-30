@@ -20,17 +20,18 @@ class VideoWidget extends StatelessWidget {
         if (state is VideosLoaded && state.vidoes.iterator.moveNext()) {
           final _video = state.vidoes;
           return Button(
-              text: TranslationConstants.watchTrailers,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => WatchVideoScreen(
-                      watchVideoArgument: WatchVideoArgument(_video),
-                    ),
+            text: TranslationConstants.watchTrailers,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WatchVideoScreen(
+                    watchVideoArgument: WatchVideoArgument(_video),
                   ),
-                );
-              });
+                ),
+              );
+            },
+          );
         }
         return const SizedBox.shrink();
       },

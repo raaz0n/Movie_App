@@ -46,7 +46,6 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         .add(MovieDetailLoadEvent(widget.movieDetailArguments.movieId));
     similarMoviesBloc
         .add(SimilarMovieLoadEvent(widget.movieDetailArguments.movieId));
-    // _castBloc.add(CastLoadEvent(movieId: widget.movieDetailArguments.movieId));
     super.initState();
   }
 
@@ -99,10 +98,11 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       child: Text(
                         movieData.overview,
                         style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            wordSpacing: 1.2,
-                            letterSpacing: 1.1),
+                          color: Colors.white,
+                          fontSize: 15,
+                          wordSpacing: 1.2,
+                          letterSpacing: 1.1,
+                        ),
                       ),
                     ),
                     Padding(
@@ -126,10 +126,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                         AppLocalizations.of(context)!
                             .translate(TranslationConstants.similarMovie)
                             .toString(),
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .copyWith(color: AppColor.royalBlue),
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                              color: AppColor.royalBlue,
+                            ),
                       ),
                     ),
                     const SimilarMovieListViewBuilder(),

@@ -51,6 +51,7 @@ class _MovieAppState extends State<MovieApp> {
                 debugShowCheckedModeBanner: false,
                 title: "Movie App",
                 theme: ThemeData(
+                  useMaterial3: true,
                   primaryColor: AppColor.vulcan,
                   scaffoldBackgroundColor: AppColor.vulcan,
                   visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -64,7 +65,17 @@ class _MovieAppState extends State<MovieApp> {
                   AppLocalizations.delegate,
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
                 ],
+                localeResolutionCallback: (deviceLocale, supportedLocales) {
+                  for (var locale in supportedLocales) {
+                    if (locale.languageCode == deviceLocale!.languageCode &&
+                        locale.countryCode == deviceLocale.countryCode) {
+                      return deviceLocale;
+                    }
+                  }
+                  return supportedLocales.last;
+                },
                 home: const HomeScreen(),
               ),
             );

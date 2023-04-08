@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/common/constants/language_const.dart';
 import 'package:movie_app/common/constants/languages.dart';
 import 'package:movie_app/common/constants/translation_constants.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
 import 'package:movie_app/presentation/bloc/language_bloc/language_bloc.dart';
-import 'package:movie_app/presentation/screen/app_localization.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../../common/constants/size_constant.dart';
@@ -12,8 +12,8 @@ import '../favorite/favorite_screen.dart';
 import 'navigation_expanded_list_item.dart';
 import 'navigation_list_item.dart';
 
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer();
+class NavigationDrawerWidget extends StatelessWidget {
+  const NavigationDrawerWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,21 +44,18 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             NavigationListItem(
-              title: AppLocalizations.of(context)!
-                  .translate(TranslationConstants.favoriteMovies)
-                  .toString(),
+              title:
+                  getTranslated(context, TranslationConstants.favoriteMovies)!,
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => FavoriteScreen(),
+                    builder: (context) => const FavoriteScreen(),
                   ),
                 );
               },
             ),
             NavigationExpandedListItem(
-              title: AppLocalizations.of(context)!
-                  .translate(TranslationConstants.language)
-                  .toString(),
+              title: getTranslated(context, TranslationConstants.language)!,
               children: Languages.languages.map((e) => e.value).toList(),
               onPressed: (index) {
                 BlocProvider.of<LanguageBloc>(context)
@@ -66,18 +63,14 @@ class NavigationDrawer extends StatelessWidget {
               },
             ),
             NavigationListItem(
-              title: AppLocalizations.of(context)!
-                  .translate(TranslationConstants.feedback)
-                  .toString(),
+              title: getTranslated(context, TranslationConstants.feedback)!,
               onPressed: () {
                 Navigator.of(context).pop();
                 Wiredash.of(context).show();
               },
             ),
             NavigationListItem(
-              title: AppLocalizations.of(context)!
-                  .translate(TranslationConstants.about)
-                  .toString(),
+              title: getTranslated(context, TranslationConstants.about)!,
               onPressed: () {},
             ),
           ],

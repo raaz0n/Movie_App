@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
       child: SafeArea(
         child: Scaffold(
-          drawer: const NavigationDrawer(),
+          drawer: const NavigationDrawerWidget(),
           body: BlocBuilder<MovieCarouselBloc, MovieCarouselState>(
               bloc: movieCarouselBloc,
               builder: (context, state) {

@@ -21,7 +21,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getTrending();
       return Right(movies!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -31,7 +31,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getComingSoon();
       return Right(movies!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -41,7 +41,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getPlayingNow();
       return Right(movies!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -51,7 +51,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getPopular();
       return Right(movies!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -61,7 +61,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getTopRated();
       return Right(movies!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -71,7 +71,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movie = await remoteDataSource.getMovieDetails(id);
       return Right(movie!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -81,7 +81,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final castCrew = await remoteDataSource.getCast(id);
       return Right(castCrew!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -91,7 +91,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final video = await remoteDataSource.getVideo(id);
       return Right(video!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -101,7 +101,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final response = await localDataSource.checkFavorite(movieId);
       return Right(response);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -111,7 +111,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final response = await localDataSource.deleteMovie(movieId);
       return Right(response);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -121,7 +121,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final response = await localDataSource.getMovies();
       return Right(response);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -132,7 +132,7 @@ class MovieRepositoryImpl extends MovieRepository {
           .saveMovie(Movietable.fromMovieEntity(movieEntity));
       return Right(response);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 
@@ -142,7 +142,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final similarMovies = await remoteDataSource.getSimilarMovies(id);
       return Right(similarMovies!);
     } on Exception {
-      return Left(AppError("something Want Wroung"));
+      return const Left(AppError("something Want Wroung"));
     }
   }
 }

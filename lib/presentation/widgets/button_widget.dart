@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/common/constants/language_const.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
-import 'package:movie_app/presentation/screen/app_localization.dart';
 
 import '../../common/constants/size_constant.dart';
 
@@ -40,8 +40,8 @@ class Button extends StatelessWidget {
           onPressed();
         },
         child: Text(
-          AppLocalizations.of(context)!.translate(text).toString(),
-          style: Theme.of(context).textTheme.button,
+          getTranslated(context, text)!,
+          style: Theme.of(context).textTheme.labelLarge,
         ),
       ),
     );

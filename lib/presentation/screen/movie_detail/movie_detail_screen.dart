@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/common/constants/language_const.dart';
 import 'package:movie_app/common/constants/translation_constants.dart';
 import 'package:movie_app/dependency_injection/get_it.dart';
 import 'package:movie_app/presentation/bloc/movie_detail/movie_detail_bloc_bloc.dart';
 import 'package:movie_app/presentation/bloc/similar_movies/similar_movies_bloc.dart';
-import 'package:movie_app/presentation/screen/app_localization.dart';
 import 'package:movie_app/presentation/screen/movie_detail/movie_detail_argument.dart';
 import 'package:movie_app/presentation/screen/movie_detail/video_widget.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
@@ -109,12 +109,10 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       padding: const EdgeInsets.symmetric(
                           vertical: Sizes.dimen_10, horizontal: Sizes.dimen_16),
                       child: Text(
-                        AppLocalizations.of(context)!
-                            .translate(TranslationConstants.cast)
-                            .toString(),
+                        getTranslated(context, TranslationConstants.cast)!,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6!
+                            .titleLarge!
                             .copyWith(color: AppColor.royalBlue),
                       ),
                     ),
@@ -123,10 +121,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       padding: const EdgeInsets.symmetric(
                           vertical: Sizes.dimen_10, horizontal: Sizes.dimen_16),
                       child: Text(
-                        AppLocalizations.of(context)!
-                            .translate(TranslationConstants.similarMovie)
-                            .toString(),
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                        getTranslated(
+                            context, TranslationConstants.similarMovie)!,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
                               color: AppColor.royalBlue,
                             ),
                       ),

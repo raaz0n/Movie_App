@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/common/constants/language_const.dart';
 import 'package:movie_app/common/constants/size_constant.dart';
 import 'package:movie_app/common/constants/translation_constants.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
 import 'package:movie_app/domain/entities/watch_video_Entity.dart';
-import 'package:movie_app/presentation/screen/app_localization.dart';
 import 'package:movie_app/presentation/screen/watch_video/watch_video_arguments.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -50,9 +50,9 @@ class _WatchVideoScreenState extends State<WatchVideoScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.vulcan,
-        title: Text(AppLocalizations.of(context)!
-            .translate(TranslationConstants.watchTrailers)
-            .toString()),
+        title: Text(
+          getTranslated(context, TranslationConstants.watchTrailers)!,
+        ),
       ),
       body: YoutubePlayerBuilder(
         player: YoutubePlayer(controller: _controller),

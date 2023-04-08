@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/common/constants/language_const.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
-import 'package:movie_app/presentation/screen/app_localization.dart';
 
 import '../../../../common/constants/size_constant.dart';
 import '../../../themes/theme_color.dart';
@@ -32,7 +32,7 @@ class TabTitleWidget extends StatelessWidget {
           ),
         ),
         child: Text(
-          AppLocalizations.of(context)!.translate(title).toString(),
+          getTranslated(context, title)!,
           style: isSelected
               ? const TextStyle(color: AppColor.royalBlue)
               : const TextStyle(color: Colors.white),

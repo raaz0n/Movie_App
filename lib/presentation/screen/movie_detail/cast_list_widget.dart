@@ -78,7 +78,7 @@ class CastListWidget extends StatelessWidget {
                               castEntity.character,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
                         ],

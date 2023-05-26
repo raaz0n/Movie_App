@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/data/core/api_constant.dart';
+import 'package:movie_app/common/core/api_constant.dart';
 import 'package:http/http.dart' as http;
 
 import '../../common/constants/internet_connection.dart';

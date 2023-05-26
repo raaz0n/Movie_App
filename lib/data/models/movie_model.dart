@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:movie_app/domain/entities/movie_entity.dart';
 
+@immutable
 class MovieModel extends MovieEntity {
   final int? voteCount;
   @override
@@ -18,13 +20,13 @@ class MovieModel extends MovieEntity {
   final String title;
   final bool? adult;
   @override
-  String backdropPath;
+  final String backdropPath;
   final String? originalLanguage;
   final List<int>? genreIds;
   final double? popularity;
   final String? mediaType;
 
-  MovieModel(
+  const MovieModel(
       {this.voteCount,
       required this.id,
       this.originalTitle,

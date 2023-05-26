@@ -37,24 +37,24 @@ class CastResultModel {
 }
 
 class CastModel extends CastEntity {
-  bool? adult;
-  int? gender;
-  int? id;
-  String? knownForDepartment;
+  final bool? adult;
+  final int? gender;
+  final int? id;
+  final String? knownForDepartment;
   @override
-  String name;
-  String? originalName;
-  String? popularity;
+  final String name;
+  final String? originalName;
+  final String? popularity;
   @override
-  String? profilePath;
-  int? castId;
+  final String? profilePath;
+  final int? castId;
   @override
-  String character;
+  final String character;
   @override
-  String creditId;
-  int? order;
+  final String creditId;
+  final int? order;
 
-  CastModel(
+  const CastModel(
       {this.adult,
       this.gender,
       this.id,
@@ -62,7 +62,7 @@ class CastModel extends CastEntity {
       required this.name,
       this.originalName,
       this.popularity,
-       this.profilePath,
+      this.profilePath,
       this.castId,
       required this.character,
       required this.creditId,

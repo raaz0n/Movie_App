@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
 
 import '../../../common/constants/size_constant.dart';
-import '../../../data/core/api_constant.dart';
+import '../../../common/core/api_constant.dart';
 import '../../../domain/entities/movie_entity.dart';
 import '../../bloc/favorite_bloc/favorite_bloc.dart';
 import '../movie_detail/movie_detail_argument.dart';

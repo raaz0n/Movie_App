@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/data/core/api_constant.dart';
 import 'package:movie_app/domain/entities/movie_entity.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
+
+import '../../common/core/api_constant.dart';
 
 class TrendingMovieItem extends StatelessWidget {
   final MovieEntity Movie;

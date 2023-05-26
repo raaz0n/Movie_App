@@ -19,8 +19,8 @@ import 'cast_list_widget.dart';
 import 'similar_movie_list_widget.dart';
 
 class MovieDetailScreen extends StatefulWidget {
-  MovieDetailArguments movieDetailArguments;
-  MovieDetailScreen({Key? key, required this.movieDetailArguments})
+  final MovieDetailArguments movieDetailArguments;
+  const MovieDetailScreen({Key? key, required this.movieDetailArguments})
       : super(key: key);
 
   @override

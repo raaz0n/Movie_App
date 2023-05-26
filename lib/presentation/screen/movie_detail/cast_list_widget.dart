@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constants/size_constant.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
-import 'package:movie_app/data/core/api_constant.dart';
 import 'package:movie_app/presentation/bloc/cast_bloc/cast_bloc.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
+
+import '../../../common/core/api_constant.dart';
 
 class CastListWidget extends StatelessWidget {
   const CastListWidget({Key? key}) : super(key: key);

@@ -8,6 +8,5 @@ class Languages {
     LanguageEntity(code: 'ne', value: "नेपाली"),
     LanguageEntity(code: 'fr', value: "French"),
     LanguageEntity(code: 'ja', value: "Japanese "),
-
   ];
 }

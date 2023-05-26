@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/constants/size_constant.dart';
+import '../../../common/core/api_constant.dart';
 import '../../../common/screenUtils/size_config.dart';
-import '../../../data/core/api_constant.dart';
 import '../../bloc/similar_movies/similar_movies_bloc.dart';
 import '../../themes/theme_color.dart';
 import 'movie_detail_argument.dart';

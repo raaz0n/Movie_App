@@ -4,12 +4,12 @@ import 'package:movie_app/common/screenUtils/size_config.dart';
 import 'package:movie_app/domain/entities/movie_details_entity.dart';
 import 'package:movie_app/presentation/themes/theme_color.dart';
 
-import '../../data/core/api_constant.dart';
+import '../../common/core/api_constant.dart';
 import 'movie_detail_appbar.dart';
 
 class BigPoster extends StatelessWidget {
-  MovieDetailsEntity movie;
-  BigPoster({Key? key, required this.movie}) : super(key: key);
+  final MovieDetailsEntity movie;
+  const BigPoster({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,9 @@ class BigPoster extends StatelessWidget {
         Positioned(
             left: getProportionateScreenWidth(Sizes.dimen_16),
             right: getProportionateScreenWidth(Sizes.dimen_16),
-            child:  MovieDetailAppBar(movieDetailsEntity: movie,))
+            child: MovieDetailAppBar(
+              movieDetailsEntity: movie,
+            ))
       ],
     );
   }

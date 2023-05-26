@@ -8,8 +8,8 @@ abstract class MovieCarouselEvent extends Equatable {
 }
 
 class CarouselLoadEvent extends MovieCarouselEvent {
-  int defaultIndex;
-  CarouselLoadEvent({this.defaultIndex = 0});
+  final int defaultIndex;
+  const CarouselLoadEvent({this.defaultIndex = 0});
 
   @override
   List<Object> get props => [defaultIndex];

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
-import 'package:movie_app/data/core/api_constant.dart';
 
 import '../../../../common/constants/size_constant.dart';
+import '../../../../common/core/api_constant.dart';
 import '../../movie_detail/movie_detail_argument.dart';
 import '../../movie_detail/movie_detail_screen.dart';
 

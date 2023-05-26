@@ -4,7 +4,7 @@ import 'package:movie_app/domain/usecases/get_similar_movies.dart';
 import 'package:movie_app/domain/usecases/get_top_rated.dart';
 import 'package:movie_app/presentation/bloc/similar_movies/similar_movies_bloc.dart';
 
-import '../data/core/api_client.dart';
+import '../common/core/api_client.dart';
 import '../data/data_sources/movie_local_data_source.dart';
 import '../data/data_sources/movie_remote_data_source.dart';
 import '../data/repositories/moive_repositories_impl.dart';

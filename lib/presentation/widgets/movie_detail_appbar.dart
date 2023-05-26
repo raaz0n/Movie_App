@@ -8,8 +8,9 @@ import 'package:movie_app/domain/entities/movie_entity.dart';
 import '../bloc/favorite_bloc/favorite_bloc.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
-  MovieDetailsEntity movieDetailsEntity;
-   MovieDetailAppBar({Key? key,required this.movieDetailsEntity}) : super(key: key);
+  final MovieDetailsEntity movieDetailsEntity;
+  const MovieDetailAppBar({Key? key, required this.movieDetailsEntity})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,11 @@ class MovieDetailAppBar extends StatelessWidget {
                 if (state is IsFavoriteMovie) {
                   return GestureDetector(
                     onTap: () {
-                      BlocProvider.of<FavoriteBloc>(context).add(ToggleFavoriteMovieEvent(MovieEntity.fromMovieDetailEntity(movieDetailsEntity), state.isMovieFavorite));
+                      BlocProvider.of<FavoriteBloc>(context).add(
+                          ToggleFavoriteMovieEvent(
+                              MovieEntity.fromMovieDetailEntity(
+                                  movieDetailsEntity),
+                              state.isMovieFavorite));
                     },
                     child: Icon(
                       state.isMovieFavorite

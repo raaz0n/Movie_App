@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/screenUtils/size_config.dart';
-import 'package:movie_app/data/core/api_constant.dart';
 import 'package:movie_app/presentation/bloc/movie_backdrop/movie_backdrop_bloc.dart';
 
 import '../../../../common/constants/size_constant.dart';
+import '../../../../common/core/api_constant.dart';
 
 class MovieBackdropWidget extends StatefulWidget {
   @override

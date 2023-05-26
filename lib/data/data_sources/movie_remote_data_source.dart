@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:movie_app/data/core/api_client.dart';
 import 'package:movie_app/data/models/movie_cast_model.dart';
 import 'package:movie_app/data/models/movie_detail_model.dart';
 import 'package:movie_app/data/models/movies_result_model.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 import 'package:movie_app/data/models/video_result_model.dart';
+
+import '../../common/core/api_client.dart';
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>?> getTrending();
